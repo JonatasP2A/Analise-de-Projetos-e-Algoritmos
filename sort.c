@@ -4,11 +4,7 @@ void bubblesort (int *vet, int n) {
   int k, j, aux;
 
   for (k = 0; k < n - 1; k++) {
-    // printf("\n[%d] ", k);
-
     for (j = 0; j < n - k - 1; j++) {
-      // printf("%d, ", j);
-
       if (vetor[j] > vetor[j + 1]) {
         aux = vetor[j];
         vetor[j] = vetor[j + 1];
@@ -38,4 +34,19 @@ void quicksort(int *vet, int n) {
   vet[b] = x;
   quicksort(vet, b);
   quicksort(&vet[b+1], n-b-1);
+}
+
+void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
+  long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
+  struct rusage ptempo;
+
+  getrusage(0, &ptempo);
+
+  seg_CPU = ptempo.ru_utime.tv_sec;
+  mseg_CPU = ptempo.ru_utime.tv_usec;
+  seg_sistema = ptempo.ru_stime.tv_sec;
+  mseg_sistema = ptempo.ru_stime.tv_usec;
+
+ *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
+ *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
 }
