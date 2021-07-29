@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <sys/resource.h>
 
 int gerarNumero(int valorMax)
 {
@@ -132,17 +133,17 @@ void quicksort(int *v, int n)
   quicksort(&v[b + 1], n - b - 1);
 }
 
-// void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
-//   long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
-//   struct rusage ptempo;
+void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
+  long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
+  struct rusage ptempo;
 
-//   getrusage(0, &ptempo);
+  getrusage(0, &ptempo);
 
-//   seg_CPU = ptempo.ru_utime.tv_sec;
-//   mseg_CPU = ptempo.ru_utime.tv_usec;
-//   seg_sistema = ptempo.ru_stime.tv_sec;
-//   mseg_sistema = ptempo.ru_stime.tv_usec;
+  seg_CPU = ptempo.ru_utime.tv_sec;
+  mseg_CPU = ptempo.ru_utime.tv_usec;
+  seg_sistema = ptempo.ru_stime.tv_sec;
+  mseg_sistema = ptempo.ru_stime.tv_usec;
 
-//  *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
-//  *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
-// }
+ *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
+ *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
+}
