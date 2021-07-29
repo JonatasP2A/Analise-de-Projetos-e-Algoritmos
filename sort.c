@@ -104,6 +104,34 @@ void insertionsort(int *vet, int n){
   }
 }
 
+void quicksort(int *v, int n)
+{
+  if (n <= 1)
+    return;
+  int x = v[0], a = 1, b = n - 1;
+
+  do
+  {
+    while ((a < n) && (v[a] <= x))
+      a++;
+    while (v[b] > x)
+      b--;
+    if (a <= b)
+    {
+      int temp = v[a];
+      v[a] = v[b];
+      v[b] = temp;
+      a++;
+      b--;
+    }
+  } while (a <= b);
+
+  v[0] = v[b];
+  v[b] = x;
+  quicksort(v, b);
+  quicksort(&v[b + 1], n - b - 1);
+}
+
 // void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
 //   long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
 //   struct rusage ptempo;
