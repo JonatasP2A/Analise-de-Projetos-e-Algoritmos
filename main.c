@@ -76,8 +76,8 @@ int main()
 
   printf("\n");
 
-  bubblesort(&vet1, valorMax);
-  mergesort(&vet2, valorMax);
+  bubblesort(vet1, valorMax);
+  insertionsort(vet2, valorMax);
 
   for (int j = 0; j < valorMax; j++)
   {
@@ -88,18 +88,8 @@ int main()
 
   for (int g = 0; g < valorMax; g++)
   {
-    printf("%d ", vet1[g]);
+    printf("%d ", vet2[g]);
   }
-  
-  int a[7] = {5, 9, 2, 4, 6, 1, 10};
-  for (int i = 0; i < 7; i++) {
-    printf("%d ", a[i]);
-  }
-  printf("\n");
-  metodocaixas(a, 7, 10);
-  for (int i = 0; i < 7; i++) {
-    printf("%d ", a[i]);
-  }
-  printf("\n");
+
   return 0;
 }

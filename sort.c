@@ -26,29 +26,6 @@ void bubblesort(int *v, int n)
   }
 }
 
-void mergesort(int *v, int n)
-{
-  int *c = malloc(sizeof(int) * n);
-  sort(v, c, 0, n - 1);
-  free(c);
-}
-
-void sort(int *v, int *c, int i, int f)
-{
-  if (i >= f)
-    return;
-
-  int m = (i + f) / 2;
-
-  sort(v, c, i, m);
-  sort(v, c, m + 1, f);
-
-  if (v[m] <= v[m + 1])
-    return;
-
-  merge(v, c, i, m, f);
-}
-
 void merge(int *v, int *c, int i, int m, int f)
 {
   int z, iv = i, ic = m + 1;
@@ -73,21 +50,57 @@ void merge(int *v, int *c, int i, int m, int f)
     v[z++] = c[ic++];
 }
 
+void sort(int *v, int *c, int i, int f)
+{
+  if (i >= f)
+    return;
+
+  int m = (i + f) / 2;
+
+  sort(v, c, i, m);
+  sort(v, c, m + 1, f);
+
+  if (v[m] <= v[m + 1])
+    return;
+
+  merge(v, c, i, m, f);
+}
+
+void mergesort(int *v, int n)
+{
+  int *c = malloc(sizeof(int) * n);
+  sort(v, c, 0, n - 1);
+  free(c);
+}
+
 void metodocaixas(int *vet, int n, int max_value) {
-  int caixas[n];
-  for (j = 1; j <= max_value; j++) {
+  int caixas[max_value];
+  for (int j = 0; j < max_value; j++) {
     caixas[j] = 0;
   }
-  for (k = 0; k < n; k++) {
-    caixas[vet[k]] += 1;
+  for (int k = 0; k < n; k++) {
+    caixas[vet[k] - 1] += 1;
   }
   int posicao = 0;
-  for (l = 0; l < max_value; l++){
-    while caixas[l] != 0 {
+  for (int l = 0; l < max_value; l++){
+    while (caixas[l] != 0) {
       caixas[l] -= 1;
-      vet[k] = l;
-      k += 1;
+      vet[posicao] = l + 1;
+      posicao += 1;
     }
+  }
+}
+
+void insertionsort(int *vet, int n){
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = vet[i];
+    j = i - 1;
+    while (j >= 0 && vet[j] > key) {
+      vet[j + 1] = vet[j];
+      j = j - 1;
+    }
+    vet[j + 1] = key;
   }
 }
 
