@@ -1,52 +1,89 @@
 #include "sort.h"
 
-void bubblesort (int *vet, int n) {
+int gerarNumero(int valorMax)
+{
+  int valor = rand();
+
+  valor = valor % valorMax + 1;
+  return valor;
+}
+
+void bubblesort(int *v, int n)
+{
   int k, j, aux;
 
-  for (k = 0; k < n - 1; k++) {
-    for (j = 0; j < n - k - 1; j++) {
-      if (vetor[j] > vetor[j + 1]) {
-        aux = vetor[j];
-        vetor[j] = vetor[j + 1];
-        vetor[j + 1] = aux;
+  for (k = 0; k < n - 1; k++)
+  {
+    for (j = 0; j < n - k - 1; j++)
+    {
+      if (v[j] > v[j + 1])
+      {
+        aux = v[j];
+        v[j] = v[j + 1];
+        v[j + 1] = aux;
       }
     }
   }
 }
 
-void quicksort(int *vet, int n) {
-  if (n <= 1) return;
-  int x = vet[0], a = 1, b = n-1;
-
-  do {
-    while ((a < n) && (vet[a] <= x)) a++;
-    while (vet[b] > x) b--;
-    if (a <= b) {
-      int temp = vet[a];
-      vet[a] = vet[b];
-      vet[b] = temp;
-      a++;
-      b--;
-    }
-  } while (a <= b);
-
-  vet[0] = vet[b];
-  vet[b] = x;
-  quicksort(vet, b);
-  quicksort(&vet[b+1], n-b-1);
+void mergesort(int *v, int n)
+{
+  int *c = malloc(sizeof(int) * n);
+  sort(v, c, 0, n - 1);
+  free(c);
 }
 
-void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
-  long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
-  struct rusage ptempo;
+void sort(int *v, int *c, int i, int f)
+{
+  if (i >= f)
+    return;
 
-  getrusage(0, &ptempo);
+  int m = (i + f) / 2;
 
-  seg_CPU = ptempo.ru_utime.tv_sec;
-  mseg_CPU = ptempo.ru_utime.tv_usec;
-  seg_sistema = ptempo.ru_stime.tv_sec;
-  mseg_sistema = ptempo.ru_stime.tv_usec;
+  sort(v, c, i, m);
+  sort(v, c, m + 1, f);
 
- *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
- *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
+  if (v[m] <= v[m + 1])
+    return;
+
+  merge(v, c, i, m, f);
 }
+
+void merge(int *v, int *c, int i, int m, int f)
+{
+  int z, iv = i, ic = m + 1;
+
+  for (z = i; z <= f; z++)
+    c[z] = v[z];
+
+  z = i;
+
+  while (iv <= m && ic <= f)
+  {
+    if (c[iv] <= c[ic])
+      v[z++] = c[iv++];
+    else
+      v[z++] = c[ic++];
+  }
+
+  while (iv <= m)
+    v[z++] = c[iv++];
+
+  while (ic <= f)
+    v[z++] = c[ic++];
+}
+
+// void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
+//   long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
+//   struct rusage ptempo;
+
+//   getrusage(0, &ptempo);
+
+//   seg_CPU = ptempo.ru_utime.tv_sec;
+//   mseg_CPU = ptempo.ru_utime.tv_usec;
+//   seg_sistema = ptempo.ru_stime.tv_sec;
+//   mseg_sistema = ptempo.ru_stime.tv_usec;
+
+//  *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
+//  *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
+// }
