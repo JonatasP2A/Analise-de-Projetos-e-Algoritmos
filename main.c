@@ -90,6 +90,16 @@ int main()
   {
     printf("%d ", vet1[g]);
   }
-
+  
+  int a[7] = {5, 9, 2, 4, 6, 1, 10};
+  for (int i = 0; i < 7; i++) {
+    printf("%d ", a[i]);
+  }
+  printf("\n");
+  metodocaixas(a, 7, 10);
+  for (int i = 0; i < 7; i++) {
+    printf("%d ", a[i]);
+  }
+  printf("\n");
   return 0;
 }

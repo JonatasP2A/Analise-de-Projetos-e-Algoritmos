@@ -73,6 +73,24 @@ void merge(int *v, int *c, int i, int m, int f)
     v[z++] = c[ic++];
 }
 
+void metodocaixas(int *vet, int n, int max_value) {
+  int caixas[n];
+  for (j = 1; j <= max_value; j++) {
+    caixas[j] = 0;
+  }
+  for (k = 0; k < n; k++) {
+    caixas[vet[k]] += 1;
+  }
+  int posicao = 0;
+  for (l = 0; l < max_value; l++){
+    while caixas[l] != 0 {
+      caixas[l] -= 1;
+      vet[k] = l;
+      k += 1;
+    }
+  }
+}
+
 // void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
 //   long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
 //   struct rusage ptempo;
