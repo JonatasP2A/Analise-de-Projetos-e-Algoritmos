@@ -3,6 +3,7 @@
 
 void bubblesort(int *v, int n, int max_value)
 {
+  int max = max_value; // variável apenas para generalizar os métodos de sort
   int k, j, aux;
 
   for (k = 0; k < n - 1; k++)
@@ -61,6 +62,7 @@ void sort(int *v, int *c, int i, int f) //método interno do mergesort
 
 void mergesort(int *v, int n, int max_value)
 {
+  int max = max_value; // variável apenas para generalizar os métodos de sort
   int *c = malloc(sizeof(int) * n);
   sort(v, c, 0, n - 1);
   free(c);
@@ -87,6 +89,7 @@ void metodocaixas(int *vet, int n, int max_value)
 
 void insertionsort(int *vet, int n, int max_value)
 {
+  int max = max_value; // variável apenas para generalizar os métodos de sort
   int i, key, j;
   for (i = 1; i < n; i++) {
     key = vet[i];
@@ -101,6 +104,7 @@ void insertionsort(int *vet, int n, int max_value)
 
 void quicksort(int *v, int n, int max_value)
 {
+  int max = max_value; // variável apenas para generalizar os métodos de sort
   if (n <= 1)
     return;
   int x = v[0], a = 1, b = n - 1;

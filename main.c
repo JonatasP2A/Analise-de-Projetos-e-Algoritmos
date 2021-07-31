@@ -4,8 +4,8 @@
 int main()
 {
   int i,
-      N = 50000,
-      valor_max = 10000,
+      N = 50,
+      valor_max = 1000000,
       vet1[N],
       vet2[N],
       vet3[N],

@@ -58,7 +58,7 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     cpu_total_1 = cpu_fin_1 - cpu_ini_1;
     printf("Tempo CPU para o vetor 1: %f\n", cpu_total_1);
     sis_total_1 = sis_fin_1 - sis_ini_1;
-    printf("Tempo Sistema para o vetor 1: %f\n", sis_total_1);
+    // printf("Tempo Sistema para o vetor 1: %f\n", sis_total_1);
 
     Tempo_CPU_Sistema(&cpu_ini_2, &sis_ini_2);
     metodo(vet2, n, valor_max);
@@ -66,7 +66,7 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     cpu_total_2 = cpu_fin_2 - cpu_ini_2;
     printf("Tempo CPU para o vetor 2: %f\n", cpu_total_2);
     sis_total_2 = sis_fin_2 - sis_ini_2;
-    printf("Tempo Sistema para o vetor 2: %f\n", sis_total_2);
+    // printf("Tempo Sistema para o vetor 2: %f\n", sis_total_2);
 
     Tempo_CPU_Sistema(&cpu_ini_3, &sis_ini_3);
     metodo(vet3, n, valor_max);
@@ -74,7 +74,7 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     cpu_total_3 = cpu_fin_3 - cpu_ini_3;
     printf("Tempo CPU para o vetor 3: %f\n", cpu_total_3);
     sis_total_3 = sis_fin_3 - sis_ini_3;
-    printf("Tempo Sistema para o vetor 3: %f\n", sis_total_3);
+    // printf("Tempo Sistema para o vetor 3: %f\n", sis_total_3);
 
     Tempo_CPU_Sistema(&cpu_ini_4, &sis_ini_4);
     metodo(vet4, n, valor_max);
@@ -82,7 +82,7 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     cpu_total_4 = cpu_fin_4 - cpu_ini_4;
     printf("Tempo CPU para o vetor 4: %f\n", cpu_total_4);
     sis_total_4 = sis_fin_4 - sis_ini_4;
-    printf("Tempo Sistema para o vetor 4: %f\n", sis_total_4);
+    // printf("Tempo Sistema para o vetor 4: %f\n", sis_total_4);
 
     Tempo_CPU_Sistema(&cpu_ini_5, &sis_ini_5);
     metodo(vet5, n, valor_max);
@@ -90,11 +90,11 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     cpu_total_5 = cpu_fin_5 - cpu_ini_5;
     printf("Tempo CPU para o vetor 5: %f\n", cpu_total_5);
     sis_total_5 = sis_fin_5 - sis_ini_5;
-    printf("Tempo Sistema para o vetor 5: %f\n", sis_total_5);
+    // printf("Tempo Sistema para o vetor 5: %f\n", sis_total_5);
 
     double media_cpu = (cpu_total_1 + cpu_total_2 + cpu_total_3 + cpu_total_4 + cpu_total_5 / 5);
     double media_sis = (sis_total_1 + sis_total_2 + sis_total_3 + sis_total_4 + sis_total_5 / 5);
 
     printf("\nTempo médio CPU: %f\n", media_cpu);
-    printf("Tempo médio Sistema: %f\n\n", media_sis);
+    // printf("Tempo médio Sistema: %f\n\n", media_sis);
 }
