@@ -2,15 +2,12 @@
 #define SORT_H_INCLUDED
 
 #include <stdio.h>
-// #include <conio.h>
 #include <stdlib.h>
 
-int gerarNumero(int valorMax);
-void bubblesort(int *v, int n);
-void mergesort(int *v, int n);
+void bubblesort(int *v, int n, int max_value);
+void mergesort(int *v, int n, int max_value);
 void metodocaixas(int *vet, int n, int max_value);
-void insertionsort(int *vet, int n);
-void quicksort(int *v, int n);
-void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total);
+void insertionsort(int *vet, int n, int max_value);
+void quicksort(int *v, int n, int max_value);
 
 #endif // SORT_H_INCLUDED

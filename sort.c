@@ -1,15 +1,7 @@
 #include "sort.h"
-#include <sys/resource.h>
 
-int gerarNumero(int valorMax)
-{
-  int valor = rand();
 
-  valor = valor % valorMax + 1;
-  return valor;
-}
-
-void bubblesort(int *v, int n)
+void bubblesort(int *v, int n, int max_value)
 {
   int k, j, aux;
 
@@ -27,7 +19,7 @@ void bubblesort(int *v, int n)
   }
 }
 
-void merge(int *v, int *c, int i, int m, int f)
+void merge(int *v, int *c, int i, int m, int f) //método interno do mergesort
 {
   int z, iv = i, ic = m + 1;
 
@@ -51,7 +43,7 @@ void merge(int *v, int *c, int i, int m, int f)
     v[z++] = c[ic++];
 }
 
-void sort(int *v, int *c, int i, int f)
+void sort(int *v, int *c, int i, int f) //método interno do mergesort
 {
   if (i >= f)
     return;
@@ -67,14 +59,15 @@ void sort(int *v, int *c, int i, int f)
   merge(v, c, i, m, f);
 }
 
-void mergesort(int *v, int n)
+void mergesort(int *v, int n, int max_value)
 {
   int *c = malloc(sizeof(int) * n);
   sort(v, c, 0, n - 1);
   free(c);
 }
 
-void metodocaixas(int *vet, int n, int max_value) {
+void metodocaixas(int *vet, int n, int max_value)
+{
   int caixas[max_value];
   for (int j = 0; j < max_value; j++) {
     caixas[j] = 0;
@@ -92,7 +85,8 @@ void metodocaixas(int *vet, int n, int max_value) {
   }
 }
 
-void insertionsort(int *vet, int n){
+void insertionsort(int *vet, int n, int max_value)
+{
   int i, key, j;
   for (i = 1; i < n; i++) {
     key = vet[i];
@@ -105,7 +99,7 @@ void insertionsort(int *vet, int n){
   }
 }
 
-void quicksort(int *v, int n)
+void quicksort(int *v, int n, int max_value)
 {
   if (n <= 1)
     return;
@@ -129,21 +123,6 @@ void quicksort(int *v, int n)
 
   v[0] = v[b];
   v[b] = x;
-  quicksort(v, b);
-  quicksort(&v[b + 1], n - b - 1);
-}
-
-void Tempo_CPU_Sistema(double *seg_CPU_total, double *seg_sistema_total) {
-  long seg_CPU, seg_sistema, mseg_CPU, mseg_sistema;
-  struct rusage ptempo;
-
-  getrusage(0, &ptempo);
-
-  seg_CPU = ptempo.ru_utime.tv_sec;
-  mseg_CPU = ptempo.ru_utime.tv_usec;
-  seg_sistema = ptempo.ru_stime.tv_sec;
-  mseg_sistema = ptempo.ru_stime.tv_usec;
-
- *seg_CPU_total = (seg_CPU + 0.000001 * mseg_CPU);
- *seg_sistema_total = (seg_sistema + 0.000001 * mseg_sistema);
+  quicksort(v, b, max_value);
+  quicksort(&v[b + 1], n - b - 1, max_value);
 }
