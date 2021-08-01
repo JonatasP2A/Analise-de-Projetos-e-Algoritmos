@@ -92,8 +92,8 @@ void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int
     sis_total_5 = sis_fin_5 - sis_ini_5;
     // printf("Tempo Sistema para o vetor 5: %f\n", sis_total_5);
 
-    double media_cpu = (cpu_total_1 + cpu_total_2 + cpu_total_3 + cpu_total_4 + cpu_total_5 / 5);
-    double media_sis = (sis_total_1 + sis_total_2 + sis_total_3 + sis_total_4 + sis_total_5 / 5);
+    double media_cpu = (cpu_total_1 + cpu_total_2 + cpu_total_3 + cpu_total_4 + cpu_total_5) / 5;
+    double media_sis = (sis_total_1 + sis_total_2 + sis_total_3 + sis_total_4 + sis_total_5) / 5;
 
     printf("\nTempo médio CPU: %f\n", media_cpu);
     // printf("Tempo médio Sistema: %f\n\n", media_sis);
