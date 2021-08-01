@@ -35,5 +35,4 @@ $ ./main
 
 ### Resultados
 <p>Para cada método de ordenação, foram feitas 5 execuções em vetores de tamanho N com valores gerados aleatoriamente. Após feita a execução de ordenação, é coletado o tempo
-feito uma média do tempo de execução dos 5 vetores. Os valores de média de cada resultado foram adicionados nos gráficos para melhor comparação. Estes encontrados no arquivo
-<a href="https://github.com/JonatasP2A/Analise-de-Projetos-e-Algoritmos/blob/master/sort.h">graficos</a></p>
+feito, e calculada uma média do tempo de execução dos 5 vetores. Os valores de média de cada resultado foram adicionados nos gráficos para melhor comparação. Estes encontrados no arquivo <a href="https://github.com/JonatasP2A/Analise-de-Projetos-e-Algoritmos/blob/master/sort.h">graficos</a></p>
