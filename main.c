@@ -5,19 +5,43 @@ int main()
 {
   int i,
       N = 50,
-      valor_max = 1000000,
       vet1[N],
       vet2[N],
       vet3[N],
       vet4[N],
       vet5[N],
       media;
+
+  unsigned long valor_max = 1000000,
+                vet1[N],
+                vet2[N],
+                vet3[N],
+                vet4[N],
+                vet5[N];
+
+  srand((unsigned)time(NULL));
   for (i = 0; i < N; i++)
   {
     vet1[i] = gerarNumero(valor_max);
+  }
+
+  for (i = 0; i < N; i++)
+  {
     vet2[i] = gerarNumero(valor_max);
+  }
+
+  for (i = 0; i < N; i++)
+  {
     vet3[i] = gerarNumero(valor_max);
+  }
+
+  for (i = 0; i < N; i++)
+  {
     vet4[i] = gerarNumero(valor_max);
+  }
+
+  for (i = 0; i < N; i++)
+  {
     vet5[i] = gerarNumero(valor_max);
   }
 

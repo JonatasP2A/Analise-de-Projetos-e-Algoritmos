@@ -1,7 +1,6 @@
 #include "sort.h"
 
-
-void bubblesort(int *v, int n, int max_value)
+void bubblesort(unsigned long *v, int n, unsigned long max_value)
 {
   int max = max_value; // variável apenas para generalizar os métodos de sort
   int k, j, aux;
@@ -20,7 +19,7 @@ void bubblesort(int *v, int n, int max_value)
   }
 }
 
-void merge(int *v, int *c, int i, int m, int f) //método interno do mergesort
+void merge(unsigned long *v, unsigned long *c, int i, int m, int f) //método interno do mergesort
 {
   int z, iv = i, ic = m + 1;
 
@@ -44,7 +43,7 @@ void merge(int *v, int *c, int i, int m, int f) //método interno do mergesort
     v[z++] = c[ic++];
 }
 
-void sort(int *v, int *c, int i, int f) //método interno do mergesort
+void sort(unsigned long *v, unsigned long *c, int i, int f) //método interno do mergesort
 {
   if (i >= f)
     return;
@@ -60,26 +59,30 @@ void sort(int *v, int *c, int i, int f) //método interno do mergesort
   merge(v, c, i, m, f);
 }
 
-void mergesort(int *v, int n, int max_value)
+void mergesort(unsigned long *v, int n, unsigned long max_value)
 {
   int max = max_value; // variável apenas para generalizar os métodos de sort
-  int *c = malloc(sizeof(int) * n);
+  int *c = malloc(sizeof(unsigned long) * n);
   sort(v, c, 0, n - 1);
   free(c);
 }
 
-void metodocaixas(int *vet, int n, int max_value)
+void metodocaixas(unsigned long *vet, int n, unsigned long max_value)
 {
   int caixas[max_value];
-  for (int j = 0; j < max_value; j++) {
+  for (unsigned long j = 0; j < max_value; j++)
+  {
     caixas[j] = 0;
   }
-  for (int k = 0; k < n; k++) {
+  for (int k = 0; k < n; k++)
+  {
     caixas[vet[k] - 1] += 1;
   }
   int posicao = 0;
-  for (int l = 0; l < max_value; l++){
-    while (caixas[l] != 0) {
+  for (unsigned long l = 0; l < max_value; l++)
+  {
+    while (caixas[l] != 0)
+    {
       caixas[l] -= 1;
       vet[posicao] = l + 1;
       posicao += 1;
@@ -87,14 +90,16 @@ void metodocaixas(int *vet, int n, int max_value)
   }
 }
 
-void insertionsort(int *vet, int n, int max_value)
+void insertionsort(unsigned long *vet, int n, unsigned long max_value)
 {
   int max = max_value; // variável apenas para generalizar os métodos de sort
   int i, key, j;
-  for (i = 1; i < n; i++) {
+  for (i = 1; i < n; i++)
+  {
     key = vet[i];
     j = i - 1;
-    while (j >= 0 && vet[j] > key) {
+    while (j >= 0 && vet[j] > key)
+    {
       vet[j + 1] = vet[j];
       j = j - 1;
     }
@@ -102,7 +107,7 @@ void insertionsort(int *vet, int n, int max_value)
   }
 }
 
-void quicksort(int *v, int n, int max_value)
+void quicksort(unsigned long *v, int n, unsigned long max_value)
 {
   int max = max_value; // variável apenas para generalizar os métodos de sort
   if (n <= 1)
