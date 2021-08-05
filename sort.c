@@ -62,7 +62,7 @@ void sort(unsigned long *v, unsigned long *c, int i, int f) //método interno do
 void mergesort(unsigned long *v, int n, unsigned long max_value)
 {
   int max = max_value; // variável apenas para generalizar os métodos de sort
-  int *c = malloc(sizeof(unsigned long) * n);
+  unsigned long *c = malloc(sizeof(unsigned long) * n);
   sort(v, c, 0, n - 1);
   free(c);
 }

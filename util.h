@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef void (*Metodo)(int *, int, int);
+typedef void (*Metodo)(unsigned long *, int, unsigned long);
 
-int gerarNumero(int valor_max);
-void media_tempo_sort(Metodo metodo, int n, int valor_max, int *v1, int *v2, int *v3, int *v4, int *v5);
+unsigned long gerarNumero(unsigned long valor_max);
+void media_tempo_sort(Metodo metodo, int n, unsigned long valor_max, unsigned long *v1, unsigned long *v2, unsigned long *v3, unsigned long *v4, unsigned long *v5);
 
 #endif // UTIL_H_INCLUDED

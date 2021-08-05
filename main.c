@@ -1,16 +1,11 @@
+#include <time.h>
 #include "sort.h"
 #include "util.h"
 
 int main()
 {
   int i,
-      N = 50,
-      vet1[N],
-      vet2[N],
-      vet3[N],
-      vet4[N],
-      vet5[N],
-      media;
+      N = 50;
 
   unsigned long valor_max = 1000000,
                 vet1[N],
